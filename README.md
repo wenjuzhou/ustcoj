@@ -30,12 +30,10 @@ Manage script: `your_project_root`/manage.py
 
 ### Development Environment
 
-#### Install new Packages
-
-Use `pip install package_name` to install a new python package. Then freeze the package list.
+#### Install Packages
 
 ``` sh
-(ustcoj) pip freeze > requirements.txt
+(ustcoj) pip install -r requirements.txt
 ```
 
 #### Run in Debug Mode
