@@ -2,23 +2,33 @@
 
 ## Environment
 
-### Development Environment
+### PyCharm setting
 
-To keep the environment clean, please use Virtual Environment.
+First, create a new **Pure Python** project named `ustcoj` with a Virtual Environment named `ustcoj` based on **Python 3.6**.
 
-In PyCharm, you can create and apply the VirtualEnv in `Preferences > Project : proj_name > Project Interpreter > ... > create VirtualEnv`.
+Then, open the empty project, pull files from GitHub. (`Terminal` tab in PyCharm)
 
-(Assume the name of VirtualEnv is  `ustcoj`)
-
-Note that our project is based on Python 3.6.
-
-#### Initialize the VirtualEnv
-
-Run the commands in the VirtualEnv. (`Terminal` tab in PyCharm)
-
-```sh
-(ustcoj) pip install -r requirements.txt
 ```
+(ustcoj) git init
+(ustcoj) git remote add origin git@github.com:volltin/ustcoj.git
+(ustcoj) git pull origin master
+```
+
+(`ustcoj` is.the name of your Virtual Environment)
+
+Now, all files are in your project dir.
+
+Finally, set up the framework support to get better experience:
+
+`Preferences > Languages & Frameworks > Django > enable Django Support`
+
+Django project root: `your_project_root`
+
+Settings: `your_project_root`/ustcoj/setting.py
+
+Manage script: `your_project_root`/manage.py
+
+### Development Environment
 
 #### Install new Packages
 
