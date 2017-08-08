@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^news/', include('news.urls')),
     url(r'^user/', include('user.urls')),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^problem/', include('problem.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
 ]
