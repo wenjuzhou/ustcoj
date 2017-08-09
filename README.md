@@ -1,5 +1,7 @@
 # USTCOJ (Django)
 
+[![Build Status](https://travis-ci.com/volltin/ustcoj.svg?token=4JibKQrmfuPTR7qe424i&branch=master)](https://travis-ci.com/volltin/ustcoj)
+
 ## Environment
 
 ### PyCharm setting
