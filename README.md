@@ -63,5 +63,5 @@ Use `unittest` to test the application.
 Run the commands in the VirtualEnv. (`Terminal` tab in PyCharm)
 
 ```sh
-(ustcoj) python -m unittest discover -v
+(ustcoj) python manage.py test
 ```
