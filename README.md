@@ -16,7 +16,7 @@ Then, open the empty project, pull files from GitHub. (`Terminal` tab in PyCharm
 (ustcoj) git pull origin master
 ```
 
-(`ustcoj` is.the name of your Virtual Environment)
+(`ustcoj` is the name of your Virtual Environment)
 
 Now, all files are in your project dir.
 
