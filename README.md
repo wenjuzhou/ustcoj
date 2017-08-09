@@ -54,6 +54,15 @@ Run the commands in the VirtualEnv. (`Terminal` tab in PyCharm)
 
 Now it is running on http://127.0.0.1:8000/
 
+
+#### Use Django Admin Panel
+
+```sh
+(ustcoj) python manager.py createsuperuser
+```
+
+Open http://127.0.0.1:8000/admin
+
 ## Tests
 
 ### Unittest
