@@ -46,7 +46,6 @@ class AbstractProblem(models.Model):
 class Problem(AbstractProblem):
 
     problem_id = models.IntegerField(unique=True, db_index=True)
-    testset_id = models.CharField(max_length=255)
 
     def __str__(self):
         return str(self.problem_id) + '-' + self.title

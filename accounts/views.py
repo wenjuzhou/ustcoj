@@ -8,6 +8,10 @@ from django.contrib.auth import login, logout
 # Create your views here.
 
 
+def index(request):
+    return render(request, 'index.html')
+
+
 def user_login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)

@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from accounts import views as account_view
+
 urlpatterns = [
     url(r'^news/', include('news.urls')),
     url(r'^user/', include('user.urls')),
@@ -23,4 +25,5 @@ urlpatterns = [
     url(r'^problem/', include('problem.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
+    url(r'^$', account_view.index),
 ]
