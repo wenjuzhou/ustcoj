@@ -38,6 +38,12 @@ Manage script: `your_project_root`/manage.py
 (ustcoj) pip install -r requirements.txt
 ```
 
+#### Init local database
+
+```sh
+python manage.py migrate
+```
+
 #### Run in Debug Mode
 
 ##### IDE method
