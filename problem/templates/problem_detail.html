@@ -5,6 +5,14 @@
     <title>Problem - {{ problem.title }}</title>
 </head>
 <body>
-<h1>{{ problem.problem_id }} - {{ problem.title }}</h1>
+<h1>{{ problem.problem_id }} - {{ problem.title | title}}</h1>
+<h2>Samples</h2>
+{% for sample in problem.get_samples %}
+    <p>
+        <span>Sample-{{ forloop.counter0 }}</span>
+        <textarea>{{ sample.input }}</textarea>
+        <textarea>{{ sample.output }}</textarea>
+    </p>
+{% endfor %}
 </body>
 </html>

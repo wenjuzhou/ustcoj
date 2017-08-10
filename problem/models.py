@@ -42,6 +42,10 @@ class AbstractProblem(models.Model):
     class Meta:
         abstract = True
 
+    def get_samples(self):
+        return self.samples
+
+
 
 class Problem(AbstractProblem):
 
