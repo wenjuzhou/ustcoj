@@ -1,17 +1,15 @@
 from django.shortcuts import HttpResponse, render
-from django.http import Http404
+from django.shortcuts import get_object_or_404
 from .models import News
 # Create your views here.
 
 
 def index(request):
-    return HttpResponse('news index')
+    news_list = News.objects.all()
+    return render(request, 'news_list.html', {'news_list' : news_list})
 
 
 def detail(request, news_id):
-    try:
-        news = News.objects.get(id = str(news_id))
-    except News.DoesNotExist:
-        raise Http404
-    return HttpResponse('news id: {0}'.format(news_id))
+    news = get_object_or_404(News, pk=str(news_id))
+    return render(request, 'news_detail.html', {'news': news})
 
