@@ -22,3 +22,4 @@ class News(models.Model):
 
     class Meta:
         ordering = ['-add_time']
+        verbose_name_plural = "news"
