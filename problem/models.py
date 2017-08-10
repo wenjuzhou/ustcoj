@@ -45,6 +45,9 @@ class AbstractProblem(models.Model):
     def get_samples(self):
         return self.samples
 
+    def get_tags(self):
+        return self.tags.all()
+
 
 
 class Problem(AbstractProblem):
