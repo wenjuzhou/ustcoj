@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'news',
     'judger',
     'problem',
+    'submission',
+    'language'
 ]
 
 MIDDLEWARE = [
