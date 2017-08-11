@@ -36,4 +36,7 @@ def start_judge(sender, instance, created, **kwargs):
         instance.judge_start_time = timezone.now()
         instance.judge_finish_time = timezone.now()
         instance.status = 0
-        instance.save()
+        instance.save(update_fields=['judge_start_time',
+                                     'judge_finish_time',
+                                     'status'
+                                     ])

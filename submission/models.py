@@ -24,6 +24,9 @@ class Submission(models.Model):
     judge_start_time = models.DateTimeField(blank=True)
     judge_finish_time = models.DateTimeField(blank=True)
 
+    visible = models.BooleanField(default=True)
+    share = models.BooleanField(default=False)
+
     class Meta:
         ordering = ['-add_time']
 
