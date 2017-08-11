@@ -1,5 +1,11 @@
 from django.db import models
+from submission.models import Submission
 from markdownx.models import MarkdownxField
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from django.utils import timezone
 # Create your models here.
 
 
@@ -23,3 +29,11 @@ class Judger(models.Model):
         return self.name
 
 
+@receiver(post_save, sender=Submission)
+def start_judge(sender, instance, created, **kwargs):
+    if created:
+        # TODO: put the submission into task queue
+        instance.judge_start_time = timezone.now()
+        instance.judge_finish_time = timezone.now()
+        instance.status = 0
+        instance.save()
