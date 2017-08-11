@@ -41,7 +41,7 @@ Manage script: `your_project_root`/manage.py
 #### Init local database
 
 ```sh
-python manage.py migrate
+(ustcoj) python manage.py migrate
 ```
 
 #### Run in Debug Mode
