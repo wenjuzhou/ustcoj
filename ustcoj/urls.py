@@ -19,10 +19,12 @@ from django.contrib import admin
 from accounts import views as account_view
 
 urlpatterns = [
-    url(r'^news/', include('news.urls')),
-    url(r'^user/', include('user.urls')),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^news/', include('news.urls')),
     url(r'^problem/', include('problem.urls')),
+    url(r'^submission/', include('submission.urls')),
+    url(r'^user/', include('user.urls')),
+
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^$', account_view.index),

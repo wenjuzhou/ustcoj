@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'mdx_math',
     'markdownx',
 
-    'user',
     'accounts',
-    'news',
+    'course',
     'judger',
+    'language',
+    'news',
     'problem',
-    'submission',
-    'language'
+    'submission'
 ]
 
 MIDDLEWARE = [
