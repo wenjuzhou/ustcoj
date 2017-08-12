@@ -12,6 +12,7 @@ STATUS_CODE = (
 class Submission(models.Model):
 
     code = models.TextField()
+    length = models.IntegerField(editable=False)
 
     language = models.ForeignKey('language.Language')
     user = models.ForeignKey(User)
@@ -21,8 +22,8 @@ class Submission(models.Model):
     info = models.CharField(max_length=65535, blank=True)
 
     add_time = models.DateTimeField('time added', auto_now_add=True)
-    judge_start_time = models.DateTimeField(blank=True)
-    judge_finish_time = models.DateTimeField(blank=True)
+    judge_start_time = models.DateTimeField(blank=True, null=True)
+    judge_finish_time = models.DateTimeField(blank=True, null=True)
 
     visible = models.BooleanField(default=True)
     share = models.BooleanField(default=False)
@@ -31,4 +32,8 @@ class Submission(models.Model):
         ordering = ['-add_time']
 
     def __str__(self):
-        return str(self.pk) + ' (By ' + self.user.username + ')'
+        return str(self.pk) + ' (By {username}, len: {len})'.format(username=self.user.username, len=self.length)
+
+    def save(self, *args, **kwargs):
+        self.length = len(self.code)
+        super(Submission, self).save(*args, **kwargs)
