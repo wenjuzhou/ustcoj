@@ -6,7 +6,7 @@
 </head>
 <body>
 {% for submission in submissions %}
-    <a href="/submission/{{ submission.pk }}">{{ submission.pk }}</a>
+    <a href="{% url 'submission_detail' submission_id=submission.pk %}">{{ submission.pk }}</a>
 {% endfor %}
 </body>
 </html>
