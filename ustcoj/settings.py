@@ -44,12 +44,14 @@ INSTALLED_APPS = [
     'markdownx',
 
     'accounts',
+    'contest',
     'course',
     'judger',
     'language',
     'news',
     'problem',
-    'submission'
+    'submission',
+    'user',
 ]
 
 MIDDLEWARE = [
