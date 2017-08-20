@@ -151,3 +151,6 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.smarty',
     'mdx_math',
 ]
+
+# Config
+PROBLEMS_PER_PAGE = 20
