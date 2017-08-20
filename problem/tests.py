@@ -5,11 +5,9 @@ from .models import Problem
 
 def add_fake_problem(problem_id):
 
-    problem_id = str(problem_id)
-
     problem = Problem()
-    problem.problem_id = problem_id
-    problem.testset_id = problem_id
+    problem.problem_id = int(problem_id)
+    problem.testset_id = str(problem_id)
     problem.title = "A+B Problem"
     problem.description = "desc"
     problem.input_description = "input desc"
