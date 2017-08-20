@@ -13,7 +13,7 @@ def add_fake_problem(problem_id):
     problem.input_description = "input desc"
     problem.output_description = "output desc"
     problem.hint = "hint"
-    problem.samples = '[{"input":"1 2", "output":"3"}, {"input":"4 5", "output":"9"}]'
+    problem.samples = [{"input":"1 2", "output":"3"}, {"input":"4 5", "output":"9"}]
     problem.public = True
 
     problem.save()
