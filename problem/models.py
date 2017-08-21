@@ -31,6 +31,9 @@ class AbstractProblem(models.Model):
     tags = models.ManyToManyField(ProblemTag)
     source = models.CharField(max_length=255, blank=True)
 
+    solved_cnt = models.IntegerField(default=0)
+    trying_cnt = models.IntegerField(default=0)
+
     pub_time = models.DateTimeField('time to publish', default=timezone.now)
     mod_time = models.DateTimeField('time modified', auto_now=True)
     add_time = models.DateTimeField('time added', auto_now_add=True)
@@ -47,7 +50,6 @@ class AbstractProblem(models.Model):
 
     def get_tags(self):
         return self.tags.all()
-
 
 
 class Problem(AbstractProblem):
