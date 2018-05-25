@@ -1,6 +1,6 @@
-from .models import UserGroup
+from .models import UserGroup,GroupMember,GroupManager
 
-from users.serializers import UserGroupSerializer,UserProfileSerializer,UserSerializer,UserRegister
+from users.serializers import UserGroupSerializer,UserProfileSerializer,UserSerializer,UserRegister,UserCreateGroupSerializer,GroupMemberSerializer
 
 
 from rest_framework.views import APIView
@@ -23,6 +23,30 @@ class UserGroupList(APIView):
         serializer = UserGroupSerializer(group,many=True)
         return Response(serializer.data)
 
+class CreateGroup(APIView):
+    def post(self,request,format='json'):
+        request.data['creator'] = request.user
+        serializer = UserCreateGroupSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+class JoinGroup(APIView):
+    def post(self,request,format='json'):
+        request.data['user'] = '2'
+        request.data['thegroup'] = UserGroup.objects.get(name=request.data['groupname'])
+        request.data['group'] = request.data['thegroup'].pk
+        serializer = GroupMemberSerializer(data=request.data)
+        if serializer.is_valid():
+            member_exist = GroupMember.objects.filter(group=request.data['group'],user=request.data['user'])
+            if request.data['thegroup'].invite_key == request.data['invite_key']:
+                if len(member_exist)==0:
+                    serializer.save()
+                    return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+                return Response(data='you have been in the group\n',status=status.HTTP_400_BAD_REQUEST)
+            return Response(data='invalid invite key\n',status=status.HTTP_400_BAD_REQUEST)
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 @csrf_exempt
 def LogIn(request):
     data = JSONParser().parse(request)
@@ -30,6 +54,7 @@ def LogIn(request):
     if user is not None:
         login(request,user)
         return HttpResponse(user)
+    return HttpResponse(user)
 
 @login_required
 @csrf_exempt

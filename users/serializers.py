@@ -7,10 +7,20 @@ class UserGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserGroup
         fields = ('id','name','description','creator')
+class UserCreateGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserGroup
+        fields = ('id','name','description','creator','invite_key')
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('id','user','sno')
+class GroupMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GroupMember
+        fields = ('group','user')
 
 class UserSerializer(serializers.Serializer):
     username = serializers.CharField()
